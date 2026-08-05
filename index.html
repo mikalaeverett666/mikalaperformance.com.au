@@ -487,11 +487,13 @@
     justify-content: flex-start;
   }
 
-  .portrait-frame::before {
-    content: '';
+  .portrait-photo {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--mist-light) 0%, var(--sand-dark) 100%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
   }
 
   .portrait-overlay {
@@ -507,20 +509,6 @@
     font-size: 1rem;
     font-style: italic;
     color: var(--mist);
-  }
-
-  .portrait-frame::after {
-    content: 'M';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12rem;
-    font-weight: 300;
-    color: rgba(47,74,56,0.15);
-    z-index: 1;
-    line-height: 1;
   }
 
   /* TESTIMONIAL */
@@ -939,6 +927,7 @@
   </div>
   <div class="story-visual">
     <div class="portrait-frame">
+      <img src="images/mikala-bowl.jpg" alt="Mikala holding a singing bowl" class="portrait-photo">
       <div class="portrait-overlay">
         <p>"Great leaders have three things; inner light, inner vision, and inner strength."<br>- Amit Ray</p>
       </div>
