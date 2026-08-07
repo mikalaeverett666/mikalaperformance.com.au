@@ -626,6 +626,7 @@
     font-size: 1.3rem;
     font-weight: 400;
     line-height: 1;
+    font-variant-numeric: lining-nums;
     color: var(--mist);
   }
 
@@ -810,12 +811,13 @@
     nav ul li:last-child { border-bottom: none; }
     nav ul li a { display: block; padding: 0.9rem 0; }
 
-    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 72px 0 0 0; }
     .hero-left { padding: 3rem 1.5rem 2.5rem; }
     .hero-headline { font-size: clamp(2.2rem, 9vw, 3rem); }
     .hero-sub { max-width: 100%; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .hero-right { height: 60vh; min-height: 320px; }
+    .hero-photo { object-position: center 65%; }
 
     section:not(.hero), .cta-section { padding: 4rem 1.5rem; }
     .services[style] { padding-top: 4rem !important; }
@@ -840,7 +842,7 @@
     .neuro-stats { gap: 2.5rem; }
 
     footer { padding: 2.5rem 1.5rem; flex-direction: column; text-align: center; }
-    .footer-links { gap: 1.5rem; }
+    .footer-links { gap: 0.75rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   }
 
 </style>
