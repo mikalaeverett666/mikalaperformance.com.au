@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mikala: The Pause Practice</title>
+<meta name="description" content="Corporate meditation, mindfulness and emotionally intelligent team facilitation for high-pressure teams in banking, finance and government. Neuroscience-backed sessions that build psychological safety and genuine cohesion.">
+<meta property="og:title" content="Mikala: The Pause Practice">
+<meta property="og:description" content="Corporate meditation, mindfulness and emotionally intelligent team facilitation for high-pressure teams. Give your people the pause that changes everything.">
+<meta property="og:image" content="https://mikalaperformance.com.au/images/mikala-hero.jpg">
+<meta property="og:url" content="https://mikalaperformance.com.au">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,10 +67,30 @@
 
   .nav-logo span { color: var(--mist); }
 
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
   nav ul {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--stone);
+    border-radius: 2px;
+    font-size: 1.1rem;
+    color: var(--ink);
+    cursor: pointer;
   }
 
   nav a {
@@ -597,6 +625,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
     font-weight: 400;
+    line-height: 1;
     color: var(--mist);
   }
 
@@ -652,6 +681,17 @@
   }
 
   .btn-white:hover { opacity: 0.9; }
+
+  .cta-alt {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .cta-alt a {
+    color: var(--white);
+    text-decoration: underline;
+  }
 
   /* FOOTER */
   footer {
@@ -749,9 +789,26 @@
   @media (max-width: 768px) {
     nav { padding: 1rem; }
     .nav-logo { font-size: 0.92rem; letter-spacing: 0.02em; }
-    nav ul { gap: 1rem; align-items: center; }
-    nav ul li:not(:last-child) { display: none; }
-    .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.65rem; }
+    .nav-menu { gap: 0.6rem; }
+    .nav-toggle { display: flex; }
+    .nav-cta { padding: 0.85rem 0.9rem; font-size: 0.65rem; }
+
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--white);
+      border-bottom: 1px solid rgba(196,185,154,0.3);
+      padding: 0.5rem 1.5rem;
+    }
+    nav.nav-open ul { display: flex; }
+    nav ul li { border-bottom: 1px solid rgba(196,185,154,0.15); }
+    nav ul li:last-child { border-bottom: none; }
+    nav ul li a { display: block; padding: 0.9rem 0; }
 
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
     .hero-left { padding: 3rem 1.5rem 2.5rem; }
@@ -793,12 +850,15 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Mikala Performance</a>
-  <ul>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact" class="nav-cta">Book a call</a></li>
-  </ul>
+  <div class="nav-menu">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <a href="#contact" class="nav-cta">Book a call</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -835,7 +895,7 @@
 </div>
 
 <!-- THE DIFFERENCE -->
-<section class="difference" id="services">
+<section class="difference">
   <p class="section-label">Why this is different</p>
   <h2 class="section-title">Meditation that speaks<br><em>your language.</em></h2>
   <p class="difference-intro">Psychological safety, the term coined by Harvard's Amy Edmondson, isn't a buzzword. It's the strongest predictor of team learning and performance.<span class="cite">Edmondson, "Psychological Safety and Learning Behavior in Work Teams," Administrative Science Quarterly, 1999</span></p>
@@ -882,7 +942,7 @@
 </section>
 
 <!-- SERVICES -->
-<section class="services" style="padding-top: 7rem;">
+<section class="services" id="services" style="padding-top: 7rem;">
   <div class="services-intro">
     <p class="section-label">What I offer</p>
     <h2 class="section-title">The right session<br>for your team.</h2>
@@ -1026,6 +1086,7 @@
   <h2 class="section-title">Your team deserves<br><em>a holiday for their brains.</em></h2>
   <p>One conversation. No commitment.<br>Just an honest look at what's possible for your people.</p>
   <a href="mailto:hello@mikalaperformance.com.au?subject=I%20would%20like%20to%20book%20a%20discovery%20call&body=Hi%20Mikala%2C%0A%0AI%E2%80%99m%20interested%20in%20booking%20a%20discovery%20call.%20Here%E2%80%99s%20a%20little%20about%20what%20I%E2%80%99m%20looking%20for%3A%0A%0A%5BYour%20message%20here%5D%0A%0ALooking%20forward%20to%20connecting%2C%0A%5BYour%20name%5D" class="btn-white">Book a discovery call</a>
+  <p class="cta-alt">Or call <a href="tel:+61424037374">0424 037 374</a></p>
 </section>
 
 <!-- FOOTER -->
@@ -1033,11 +1094,29 @@
   <div class="footer-logo">Mikala Performance</div>
   <p>Corporate meditation that speaks corporate. Sunshine Coast QLD &amp; online.</p>
   <div class="footer-links">
-    <a href="#">LinkedIn</a>
-    <a href="#">Instagram</a>
+    <a href="https://au.linkedin.com/in/mikala-everett" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/mikala_performance" target="_blank" rel="noopener">Instagram</a>
     <a href="mailto:hello@mikalaperformance.com.au">hello@mikalaperformance.com.au</a>
+    <a href="tel:+61424037374">0424 037 374</a>
   </div>
 </footer>
+
+<script>
+  var navEl = document.querySelector('nav');
+  var toggleBtn = document.querySelector('.nav-toggle');
+  toggleBtn.addEventListener('click', function() {
+    var isOpen = navEl.classList.toggle('nav-open');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+    toggleBtn.textContent = isOpen ? '✕' : '☰';
+  });
+  document.querySelectorAll('.nav-menu ul a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navEl.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', false);
+      toggleBtn.textContent = '☰';
+    });
+  });
+</script>
 
 </body>
 </html>
